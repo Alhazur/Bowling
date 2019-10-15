@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 namespace Bowling
 {
     //Beräkningen på summan
+    //tog en och halv dag innan jag fixat det
     public class Game
     {
         public int[] pinFalls = new int[21];
         public int currentRoll;
-        //                  kägla 
+        //         ruta     kägla 
         public int Roll(int pins)
         {
-            //int pin;//lagt till nytt variable pin, löst problem
+            //Kast
             pins = pinFalls[currentRoll] = pins;
             currentRoll++;
-            Console.WriteLine("Slaget: " + currentRoll);
+            Console.WriteLine("Kast: " + currentRoll + "\n----------");
             return pins;
         }
 
@@ -46,7 +47,7 @@ namespace Bowling
             return pinFalls[roll] + pinFalls[roll + 1];
         }
 
-        public int Score()
+        public int Score()//sammlar resultat
         {
             int score = 0;
             int roll = 0;
@@ -71,30 +72,5 @@ namespace Bowling
             }
             return score;
         }
-
-        //public int Score()
-        //{
-        //    int score = 0;
-        //    int roll = 0;
-        //    for (int frame = 0; frame < 10; frame++)
-        //    {
-        //        if (IsStrike(roll))
-        //        {
-        //            score += 10 + pinFalls[roll + 1] + pinFalls[roll + 2];
-        //            roll += 1;
-        //        }
-        //        else if (IsSpare(roll))
-        //        {
-        //            score += 10 + pinFalls[roll + 2];
-        //            roll += 2;
-        //        }
-        //        else
-        //        {
-        //            score += pinFalls[roll] + pinFalls[roll + 1];
-        //            roll += 2;
-        //        }
-        //    }
-        //    return score;
-        //}
     }
 }
